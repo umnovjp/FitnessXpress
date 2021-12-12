@@ -1,6 +1,8 @@
 const express = require("express");
 const mongojs = require("mongojs");
 const logger = require("morgan");
+const mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost/dbExample", {userNewUrlParser: true}) // added line in 10-stu
 
 const databaseUrl = "warmup";
 const collections = ["books"];
@@ -17,12 +19,12 @@ db.on("error", error => {
   console.log("Database Error:", error);
 });
 
-app.post("/submit", ({ body }, res) => {
-  const book = body;
+app.post("/exercise", ({ body }, res) => {
+  const exercise = body;
 
-  book.read = false;
+  exercise.read = false;
 
-  db.books.save(book, (error, saved) => {
+  db.exercises.save(book, (error, saved) => {
     if (error) {
       console.log(error);
     } else {
@@ -31,8 +33,22 @@ app.post("/submit", ({ body }, res) => {
   });
 });
 
-app.get("/read", (req, res) => {
-  db.books.find({ read: true }, (error, found) => {
+app.post("/exercise?", ({ body }, res) => {
+  const exercise = body;
+
+  exercise.read = false;
+
+  db.exercises.save(book, (error, saved) => {
+    if (error) {
+      console.log(error);
+    } else {
+      res.send(saved);
+    }
+  });
+});
+
+app.get("/stats", (req, res) => {
+  db.exercisess.find({ read: true }, (error, found) => {
     if (error) {
       console.log(error);
     } else {
@@ -41,8 +57,8 @@ app.get("/read", (req, res) => {
   });
 });
 
-app.get("/unread", (req, res) => {
-  db.books.find({ read: false }, (error, found) => {
+app.get("/", (req, res) => {
+  db.exercises.find({ read: false }, (error, found) => {
     if (error) {
       console.log(error);
     } else {
@@ -51,51 +67,29 @@ app.get("/unread", (req, res) => {
   });
 });
 
-app.put("/markread/:id", ({ params }, res) => {
-  db.books.update(
-    {
-      _id: mongojs.ObjectId(params.id)
-    },
-    {
-      $set: {
-        read: true
-      }
-    },
+//just in case if I have to create put route later
+// app.put("/markread/:id", ({ params }, res) => {
+//   db.exercsises.update(
+//     {
+//       _id: mongojs.ObjectId(params.id)
+//     },
+//     {
+//       $set: {
+//         read: true
+//       }
+//     },
 
-    (error, edited) => {
-      if (error) {
-        console.log(error);
-        res.send(error);
-      } else {
-        console.log(edited);
-        res.send(edited);
-      }
-    }
-  );
-});
-
-app.put("/markunread/:id", ({ params }, res) => {
-  db.books.update(
-    {
-      _id: mongojs.ObjectId(params.id)
-    },
-    {
-      $set: {
-        read: false
-      }
-    },
-
-    (error, edited) => {
-      if (error) {
-        console.log(error);
-        res.send(error);
-      } else {
-        console.log(edited);
-        res.send(edited);
-      }
-    }
-  );
-});
+//     (error, edited) => {
+//       if (error) {
+//         console.log(error);
+//         res.send(error);
+//       } else {
+//         console.log(edited);
+//         res.send(edited);
+//       }
+//     }
+//   );
+// });
 
 app.listen(3000, () => {
   console.log("App running on port 3000!");
