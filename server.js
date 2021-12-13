@@ -2,11 +2,20 @@ const express = require("express");
 const mongojs = require("mongojs");
 const logger = require("morgan");
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/dbExample", {userNewUrlParser: true}) // added line in 10-stu
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/dbExample", {userNewUrlParser: true}) // added line in 10-stu
 
-const databaseUrl = "warmup";
-const collections = ["books"];
-const db = mongojs(databaseUrl, collections);
+db.Workout.create({ name: "New Workout" })
+  .then(dbWorkout => {
+    console.log(dbWorkout);
+  })
+  .catch(({message}) => {
+    console.log(message);
+  });
+
+
+const databaseUrl = "warmup"; // to change later
+const collections = ["books"]; // to change later
+const db = mongojs(databaseUrl, collections); // to change later
 
 const app = express();
 
@@ -48,7 +57,7 @@ app.post("/exercise?", ({ body }, res) => {
 });
 
 app.get("/stats", (req, res) => {
-  db.exercisess.find({ read: true }, (error, found) => {
+  db.exercises.find({ read: true }, (error, found) => {
     if (error) {
       console.log(error);
     } else {
