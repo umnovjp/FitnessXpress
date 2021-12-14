@@ -3,6 +3,17 @@ const mongojs = require("mongojs");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/dbExample", {userNewUrlParser: true}) // added line in 10-stu
+const db = require("./models");
+// const db = mongojs(databaseUrl, collections); // to change later
+// const databaseUrl = "warmup"; // to change later
+// const collections = ["books"]; // to change later
+
+const app = express();
+
+app.use(logger("dev"));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static("public"));
 
 db.Workout.create({ name: "New Workout" })
   .then(dbWorkout => {
@@ -12,21 +23,10 @@ db.Workout.create({ name: "New Workout" })
     console.log(message);
   });
 
-
-const databaseUrl = "warmup"; // to change later
-const collections = ["books"]; // to change later
-const db = mongojs(databaseUrl, collections); // to change later
-
-const app = express();
-
-app.use(logger("dev"));
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(express.static("public"));
-
-db.on("error", error => {
-  console.log("Database Error:", error);
-});
+  // this part originally came from 09-stu-mongojs
+// db.on("error", error => {
+//   console.log("Database Error:", error);
+// });
 
 app.post("/exercise", ({ body }, res) => {
   const exercise = body;
