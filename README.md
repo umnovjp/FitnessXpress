@@ -12,6 +12,9 @@ As a user adds more exercises to this workout plan summary shows up at startup p
 ![image](https://user-images.githubusercontent.com/88174852/146486118-ea3ab5d3-68ae-4a6a-b1a0-3e2ef2dd94e3.png)
 A user is able to view the combined weight of multiple exercises and total duration of the past workouts on the stats page. There were just two workouts entered.
 ![image](https://user-images.githubusercontent.com/88174852/146486393-3cb6f01f-e6b0-490a-ae71-00fc194bec89.png)
+## Mongodb Atlas
+This app uses MongoDB Atlas where I can retireve data that I just entered. ![image](https://user-images.githubusercontent.com/88174852/146487750-0e879238-63bc-4f8f-bb1f-d7dd593e205e.png)
+
 ## Unexplained technical problem
 As I wrote this code, I noticed that npm run seed shows unexplained error. 
 ![image](https://user-images.githubusercontent.com/88174852/146486657-f8daeb93-4a1c-40c7-be7a-01b9cd64a351.png)
