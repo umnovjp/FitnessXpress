@@ -8,7 +8,7 @@ As a user selects continue workout, he is able to add a new exercise.
 ![image](https://user-images.githubusercontent.com/88174852/146484413-252b9657-f71b-4e47-8a6f-c8c555d1ad3f.png)
 As a user hits complete the exercise is added to workout. Numbers are added to numbers on first image. As a user selects new workout, he is able to add exercise to that workout. In the first example it was resistance type, but here I select cardio. 
 ![image](https://user-images.githubusercontent.com/88174852/146484751-17a0f197-6101-46cc-8182-6402bcef75d5.png)
-As a user adds more exercises to this workout plan summary shows up at startup page. 
+As a user adds more exercises to this workout plan summary shows up at startup page. Note that id in URL is different.
 ![image](https://user-images.githubusercontent.com/88174852/146486118-ea3ab5d3-68ae-4a6a-b1a0-3e2ef2dd94e3.png)
 A user is able to view the combined weight of multiple exercises and total duration of the past workouts on the stats page. There were just two workouts entered.
 ![image](https://user-images.githubusercontent.com/88174852/146486393-3cb6f01f-e6b0-490a-ae71-00fc194bec89.png)
