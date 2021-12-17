@@ -1,14 +1,12 @@
 # FitnessXpress
 ## User story
-I created this exercise for a user to view, create and track daily workouts. A user wants to be able to log multiple exercises in a workout on a given day. He should also be able to track the name, type, weight, sets, reps, and duration of exercise. If the exercise is a cardio exercise, he should be able to track his distance traveled.
+I created this app for a user to view, create and track daily workouts. A user wants to be able to log multiple exercises in a workout on a given day. He should also be able to track the name, type, weight, sets, reps, and duration of exercise. If the exercise is a cardio exercise, he should be able to track his distance traveled.
 ## Features
 When the user loads the page, he is given the option to create a new workout or continue with their last workout. Existing workout summary is already displayed.
 ![image](https://user-images.githubusercontent.com/88174852/146484066-62e2e6d1-1a8d-4b66-9c9e-b4557a5d7def.png)
 As a user selects continue workout, he is able to add a new exercise. 
 ![image](https://user-images.githubusercontent.com/88174852/146484413-252b9657-f71b-4e47-8a6f-c8c555d1ad3f.png)
-As a user hits complete the exercise is added to workout. Numbers are added to numbers on first image. 
-![image](https://user-images.githubusercontent.com/88174852/146484527-5c7e9404-e44c-4420-9d6d-65c827d06e8e.png)
-As a user selects new workout, he is able to add exercise to that workout. In the first example it was resistance type, but here I select cardio. 
+As a user hits complete the exercise is added to workout. Numbers are added to numbers on first image. As a user selects new workout, he is able to add exercise to that workout. In the first example it was resistance type, but here I select cardio. 
 ![image](https://user-images.githubusercontent.com/88174852/146484751-17a0f197-6101-46cc-8182-6402bcef75d5.png)
 As a user adds more exercises to this workout plan summary shows up at startup page. 
 ![image](https://user-images.githubusercontent.com/88174852/146486118-ea3ab5d3-68ae-4a6a-b1a0-3e2ef2dd94e3.png)
